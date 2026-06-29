@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingReceipts;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Subcontracting\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Subcontracting\FilamentErpSubcontractingPlugin;
@@ -19,7 +17,7 @@ use JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingReceip
 
 class SubcontractingReceiptResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInboxArrowDown;
+    protected static ?string $navigationIcon = 'heroicon-o-inbox-arrow-down';
 
     protected static ?int $navigationSort = 20;
 
@@ -39,9 +37,9 @@ class SubcontractingReceiptResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return SubcontractingReceiptForm::configure($schema);
+        return SubcontractingReceiptForm::configure($form);
     }
 
     public static function table(Table $table): Table
