@@ -69,5 +69,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "homepage": "https://github.com/jeffersongoncalves/filament-erp",
+    "support": {
+        "issues": "https://github.com/jeffersongoncalves/filament-erp/issues",
+        "source": "https://github.com/jeffersongoncalves/filament-erp"
+    }
 }
