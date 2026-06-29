@@ -1,6 +1,5 @@
 <?php
 
-use Filament\Actions\Testing\TestAction;
 use JeffersonGoncalves\Erp\Accounting\Models\Account;
 use JeffersonGoncalves\Erp\Accounting\Models\GlEntry;
 use JeffersonGoncalves\Erp\Core\Enums\DocStatus;
@@ -96,7 +95,7 @@ it('submits a subcontracting receipt through the UI, posting stock and balanced 
     ]);
 
     Livewire::test(ListSubcontractingReceipts::class)
-        ->callAction(TestAction::make('submit')->table($receipt));
+        ->callTableAction('submit', $receipt);
 
     expect($receipt->refresh()->docstatus)->toBe(DocStatus::Submitted);
 

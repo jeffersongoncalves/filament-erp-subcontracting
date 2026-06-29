@@ -2,9 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Concerns;
 
-use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
 use JeffersonGoncalves\Erp\Core\Enums\DocStatus;
 use JeffersonGoncalves\Erp\Subcontracting\Models\SubcontractingOrder;
@@ -23,7 +22,7 @@ trait CreatesSubcontractingReceipts
     {
         return Action::make('createReceipt')
             ->label('Create Receipt')
-            ->icon(Heroicon::OutlinedInboxArrowDown)
+            ->icon('heroicon-o-inbox-arrow-down')
             ->color('primary')
             ->requiresConfirmation()
             ->visible(fn (Model $record): bool => $record->getAttribute('docstatus') === DocStatus::Submitted)
