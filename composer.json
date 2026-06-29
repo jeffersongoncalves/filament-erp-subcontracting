@@ -22,7 +22,7 @@
         "php": "^8.2",
         "filament/filament": "^4.0",
         "jeffersongoncalves/filament-erp-core": "self.version",
-        "jeffersongoncalves/laravel-erp-subcontracting": "dev-main",
+        "jeffersongoncalves/laravel-erp-subcontracting": "^1.0",
         "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
