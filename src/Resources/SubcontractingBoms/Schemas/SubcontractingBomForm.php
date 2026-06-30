@@ -2,19 +2,19 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingBoms\Schemas;
 
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Form;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class SubcontractingBomForm
 {
-    public static function configure(Form $form): Form
+    public static function configure(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->columns(null)
-            ->schema([
+            ->components([
                 Section::make('Details')
                     ->schema([
                         TextInput::make('finished_good')

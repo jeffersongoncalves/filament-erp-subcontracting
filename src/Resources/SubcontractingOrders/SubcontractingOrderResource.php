@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingOrders;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Subcontracting\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Subcontracting\FilamentErpSubcontractingPlugin;
@@ -17,7 +19,7 @@ use JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingOrders
 
 class SubcontractingOrderResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     protected static ?int $navigationSort = 10;
 
@@ -37,9 +39,9 @@ class SubcontractingOrderResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return SubcontractingOrderForm::configure($form);
+        return SubcontractingOrderForm::configure($schema);
     }
 
     public static function table(Table $table): Table

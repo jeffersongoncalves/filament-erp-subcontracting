@@ -2,7 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingReceipts\Tables;
 
-use Filament\Tables\Actions;
+use Filament\Actions;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -58,7 +58,7 @@ class SubcontractingReceiptsTable
                         2 => 'Cancelled',
                     ]),
             ])
-            ->actions([
+            ->recordActions([
                 Actions\EditAction::make()
                     ->visible(fn ($record): bool => $record->docstatus === DocStatus::Draft),
                 ...self::submittableRecordActions(),
