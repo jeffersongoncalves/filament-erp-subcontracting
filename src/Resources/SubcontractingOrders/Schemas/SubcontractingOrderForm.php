@@ -3,18 +3,18 @@
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingOrders\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class SubcontractingOrderForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
+        return $form
             ->columns(null)
-            ->components([
+            ->schema([
                 Section::make('Details')
                     ->schema([
                         TextInput::make('supplier_name')
