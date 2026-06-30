@@ -1,5 +1,6 @@
 <?php
 
+use Filament\Actions\Testing\TestAction;
 use JeffersonGoncalves\Erp\Core\Enums\DocStatus;
 use JeffersonGoncalves\Erp\Core\Models\Company;
 use JeffersonGoncalves\Erp\Stock\Models\Warehouse;
@@ -61,7 +62,7 @@ it('submits a subcontracting order through the UI', function () {
     ]);
 
     Livewire::test(ListSubcontractingOrders::class)
-        ->callTableAction('submit', $order);
+        ->callAction(TestAction::make('submit')->table($order));
 
     expect($order->refresh()->docstatus)->toBe(DocStatus::Submitted);
 });
@@ -86,12 +87,12 @@ it('creates a subcontracting receipt from a submitted order through the UI actio
     ]);
 
     Livewire::test(ListSubcontractingOrders::class)
-        ->callTableAction('submit', $order);
+        ->callAction(TestAction::make('submit')->table($order));
 
     expect($order->refresh()->docstatus)->toBe(DocStatus::Submitted);
 
     Livewire::test(ListSubcontractingOrders::class)
-        ->callTableAction('createReceipt', $order);
+        ->callAction(TestAction::make('createReceipt')->table($order));
 
     $receipt = SubcontractingReceipt::query()
         ->where('subcontracting_order_id', $order->id)
