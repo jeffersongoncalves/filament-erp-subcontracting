@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingBoms;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Subcontracting\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Subcontracting\FilamentErpSubcontractingPlugin;
@@ -18,7 +16,7 @@ use JeffersonGoncalves\FilamentErp\Subcontracting\Resources\SubcontractingBoms\T
 
 class SubcontractingBomResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?int $navigationSort = 3;
 
@@ -38,9 +36,9 @@ class SubcontractingBomResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return SubcontractingBomForm::configure($schema);
+        return SubcontractingBomForm::configure($form);
     }
 
     public static function table(Table $table): Table
